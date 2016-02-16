@@ -1,0 +1,14 @@
+<ion-view view-title="选择国家">
+  <ion-content class="padding0 stable-bg">
+    <div class="margin10-bottom margin5-top list country-intro padding0">
+      <a ng-repeat="item in destinationList" href="#/tab/publish/{{item.dic_key}}"
+         class="item stable-bg border0 item-thumbnail-left">
+        <img ng-src="{{item.dic_addr}}" class="niu_thumbnail_img" >
+        <h2>{{item.dic_value}}</h2>
+        <h2 class="dark">{{item.dic_name}}</h2>
+        <!--<p class="gray ft-12">{{item.text}}</p>-->
+        <p class="gray">有{{item.dic_people_num}}个果宝去过</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

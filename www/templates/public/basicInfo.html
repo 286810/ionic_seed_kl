@@ -1,0 +1,46 @@
+<ion-view view-title="个人信息">
+  <ion-content id="basicinfo">
+
+    <form name="basicForm" class="padding">
+      <div upload-img data-model="traveler" data-role="header" class="text-center">
+        <div ng-if="!traveler.header">
+          <span class="ion ion-ios-person stable ft-66"></span>
+          <div class="ft-12">点击上传头像 </div>
+        </div>
+        <img ng-if="traveler.header" src="{{traveler.header}}" class="border-radius22" >
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">输入昵称</span>
+          <input type="text" name="nickname" ng-model="traveler.nickname" class="text-right" required>
+        </label>
+        <label class="item item-input item-select">
+          <span class="input-label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</span>
+          <select ng-model="traveler.sex" ng-options="item.name for item in sex">
+            <!--<option selected>男</option>-->
+            <!--<option>女</option>-->
+          </select>
+        </label>
+        <div ng-click="selectCity()" class="item item-input">
+          <span class="input-label">所在城市</span>
+          <span class="item-note dark">{{traveler.city}}</span>
+        </div>
+        <label class="item item-input">
+          <span class="input-label">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</span>
+          <input type="date" name="birthday" ng-model="traveler.birthday" required="">
+        </label>
+        <!--<div class="relative">-->
+          <!--<label class="item item-input">-->
+            <!--<span class="input-label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</span>-->
+            <!--<input type="email" name="email" ng-model="traveler.email" required="">-->
+          <!--</label>-->
+        <!--</div>  ng-disabled="basicForm.$invalid"-->
+
+      </div>
+
+      <button ng-click="finishBasic(basicForm)" ng-disabled="basicForm.$invalid" class="button button-block button-green" >
+        完成
+      </button>
+    </form>
+  </ion-content>
+</ion-view>

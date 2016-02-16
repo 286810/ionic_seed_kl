@@ -1,0 +1,15 @@
+<ion-view view-title="个人标签">
+  <ion-content>
+    <div class="list">
+      <div class="item tag border0">
+        <ion-checkbox ng-repeat="item in tagList" ng-model="item.checked" ng-checked="item.checked" ng-change="changeTag(item)">
+          {{ item.name }}
+        </ion-checkbox>
+      </div>
+    </div>
+
+    <div class="padding">
+      <button ng-click="finishTag()" ng-class="{'disabled': !traveler.tags.length}" class="button button-block button-green">完成</button>
+    </div>
+  </ion-content>
+</ion-view>

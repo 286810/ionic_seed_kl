@@ -1,0 +1,35 @@
+<ion-view view-title="登录">
+  <ion-content class="stable-bg">
+    <form name="loginForm">
+      <div class="list margin40-top">
+        <a class="item item-icon-right">
+          国家和地区区号
+          <span class="item-note">+86 中国</span>
+          <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        </a>
+        <label class="item item-input">
+          <span class="input-label">手机号码</span>
+          <input type="number" name="phone" ng-pattern="/^1[3-8]{1}\d{9}$/" ng-model="traveler.phone" ng-blur="isExit(loginForm)" required >
+        </label>
+        <label class="item item-input">
+          <span class="input-label">登录密码</span>
+          <input type="password" name="password" ng-model="traveler.password" ng-minlength="2" required >
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-50 text-left">
+          <a href="#/register" class="button button-clear button-green ft-12">去注册</a>
+        </div>
+        <div class="col-50 text-right">
+          <a href="#/forgetPwd" class="button button-clear button-green ft-12">忘记密码</a>
+        </div>
+
+      </div>
+
+      <div class="padding">
+        <button ng-click="login(loginForm)" ng-disabled="loginForm.$invalid" class="button button-green button-block">登录</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,87 @@
+<ion-view view-title="果先生" id="guider">
+  <ion-content class="padding ">
+    <div class="bar bar-header item-input-inset guider-search-wrap">
+      <label class="item-input-wrapper guider-search">
+        <i class="icon ion-ios-search placeholder-icon light"></i>
+        <input type="search" ng-model="city_name" placeholder="搜索导游" class="ng-pristine ng-valid ng-touched" >
+      </label>
+      <!--<button class="button button-clear button-green">
+        搜索
+      </button>-->
+    </div>
+    <ion-slide-box on-slide-changed="" show-pager="true">
+      <ion-slide>
+        <div class="list card border-radius10">
+          <div class="item guiderCard">
+            <div class="text-center padding-top">
+              <img ng-src="./img/guider.png" class="border-radius50" width="80">
+            </div>
+            <div class="text-center light padding5-0">
+              <span class="h4 light">天堂果果</span> <span class="icon ion-female light"></span>
+              <span class="brown-bg guiderAge">80后</span>
+
+              <h3 class="light guiderAddress relative padding5-0">北京朝阳</h3>
+            </div>
+            <div class="text-center light margin20-top">
+              <span class="guiderLabel margin10-left h5 light">会摄影</span>
+              <span class="guiderLabel margin10-left h5 light">导游证</span>
+              <span class="guiderLabel margin10-left h5 light">有车</span>
+            </div>
+          </div>
+          <div class="text-center padding20-top padding-bottom">
+            <div class="gray">导游评分</div>
+            <div class="padding-bottom">
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 gray"></span>
+            </div>
+          </div>
+          <div class="stable-bg text-center brown padding-top padding-bottom">
+            <span ng-click="chatGuider()">
+              <span class="icon ion-chatbox-working padding5-0"></span> 联系客服
+            </span>
+          </div>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="list card border-radius10">
+          <div class="item guiderCard">
+            <div class="text-center padding-top">
+              <img ng-src="./img/guider.png" class="border-radius50" width="80">
+            </div>
+            <div class="text-center light padding5-0">
+              <span class="h4 light">天堂果果</span> <span class="icon ion-female light"></span>
+              <span class="brown-bg guiderAge">80后</span>
+
+              <h3 class="light guiderAddress relative padding5-0">北京朝阳</h3>
+            </div>
+            <div class="text-center light margin20-top">
+              <span class="guiderLabel margin10-left h5 light">会摄影</span>
+              <span class="guiderLabel margin10-left h5 light">导游证</span>
+              <span class="guiderLabel margin10-left h5 light">有车</span>
+            </div>
+          </div>
+          <div class="text-center padding20-top padding-bottom">
+            <div class="gray">导游评分</div>
+            <div class="padding-bottom">
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 energized"></span>
+              <span class="icon ion-ios-star h3 gray"></span>
+            </div>
+          </div>
+          <div class="stable-bg text-center brown padding-top padding-bottom">
+            <span class="icon ion-chatbox-working padding5-0"></span> 联系客服
+            <!--<button ng-click="testJpush()" class="button button-clear">临时测试推送</button>
+            {{alertContent}}-->
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>

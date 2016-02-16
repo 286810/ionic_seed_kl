@@ -1,0 +1,88 @@
+<ion-view view-title="会话" id="msg-chat">
+  <!--<ion-header-bar class="bar-assertive">
+    <div class="buttons">
+      <a href="#/tab/message-chat-list" class="button button-clear icon ion-ios-arrow-back"></a>
+    </div>
+    <h1 class="title">会话</h1>
+  </ion-header-bar>-->
+  <ion-content class="has-footer">
+    <div class="list">
+      <div class="item contacts-info margin20-bottom">
+        <div class="text-center light padding5-0">
+          <span class="h4 light">{{contacts.name}}</span> <span class="icon ion-female light"></span>
+          <span class="brown-bg age">80后</span>
+
+          <div class="light relative ft-12 padding5-0">北京朝阳</div>
+          <div class="padding-bottom">
+            <span class="icon ion-ios-star h3 energized"></span>
+            <span class="icon ion-ios-star h3 energized"></span>
+            <span class="icon ion-ios-star h3 energized"></span>
+            <span class="icon ion-ios-star h3 energized"></span>
+            <span class="icon ion-ios-star h3 gray"></span>
+          </div>
+        </div>
+      </div>
+      <div ng-repeat="item in chatData track by $index" class="item " ng-class="{ 'item-thumbnail-left': item.pos=='left', 'item-thumbnail-right': item.pos=='right'}">
+        <img ng-if="!item.content_push" class="header" ng-src="{{item.face}}" >
+        <!--<h2>小红</h2>-->
+        <h6 class="gray padding-top" ng-class="{ 'text-right': item.pos=='right', 'text-left': item.pos=='left', 'text-center': item.pos=='center' }">
+          {{item.time | date:'MM-dd HH:mm'}}
+        </h6>
+        <p ng-if="!item.content_push" class="" ng-class="{ 'place-right': item.pos=='right', 'place-left': item.pos=='left' }">
+          <span class="content-box" ng-class="{ 'place-right': item.pos=='right', 'place-left': item.pos=='left',
+            'stable-bg': item.pos=='right', 'green-bg': item.pos=='left'}">
+            <span ng-if="item.type != 'upload'" ng-repeat="it in item.content track by $index" class="content-wrap">
+              <span ng-if="it.indexOf('.gif') == -1" class="content-text">{{it}}</span>
+              <img ng-if="it.indexOf('.gif') != -1" ng-src="{{it}}" />
+            </span>
+            <!-- upload img -->
+            <img ng-show="item.type == 'upload'" src="{{item.img}}" width="320" />
+          </span>
+        </p>
+        <p ng-if="item.content_push" ng-click="lookJourney(item.tripId)" class="brown text-center ft-12 padding">
+          {{item.content_push}}
+        </p>
+      </div>
+
+
+    </div>
+  </ion-content>
+  <div keyboard-attach class="bar bar-footer bar-sent"
+       ng-class="{'face-active': root.showFace, 'face-other-active': root.showOption, '': !root.showFace || !root.showOption}">
+    <div class="row padding0">
+      <button ng-click="showOpt()" class="button button-green button-clear icon ion-ios-plus-outline">
+      </button>
+      <div contenteditable="true" id="chat-div-input" ng-click="inputUp()" on-blur="inputDown()"
+           on-return="inputDown()" class="col-80 stable-bg "></div>
+      <button ng-click="showOpt('face')" class="button button-green button-clear icon ion-android-happy">
+      </button>
+      <!--<button ng-click="showKeyboard()" ng-if="root.showFace" class="button button-green button-clear icon ion-ios-keypad-outline">
+      </button>-->
+      <button ng-click="sendMsg('chat')" class="button button-green button-clear">
+        发送
+      </button>
+    </div>
+
+    <!--<label ng-click="sendMsg()" class="item-input-wrapper light-bg">
+      <input type="text" ng-model="chat.content" on-focus="inputUp()" on-blur="inputDown()" on-return="closeKeyboard()"
+         class="stable-bg" >
+      <button class="button button-positive button-clear col-20">
+        发送
+      </button>
+    </label>-->
+  </div>
+  <div class="padding-right stable-bg face overflow-scroll" ng-class="{'active': root.showFace, '': !root.showFace}">
+    <div ng-click="selectFace(item)" ng-repeat="item in faceList" class="padding-left place-left">
+      <img ng-src="{{item.img}}" >
+    </div>
+  </div>
+  <div class="padding-right has-footer row stable-bg text-center face-other" ng-class="{'active': root.showOption, '': !root.showOption}">
+    <div class="col padding0">
+      <button msg-upload-img class="button button-green button-clear">发送图片</button>
+    </div>
+    <div class="col padding0">
+      <button class="button button-green button-clear col-offset-20">发送位置</button>
+    </div>
+  </div>
+
+</ion-view>

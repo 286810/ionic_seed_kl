@@ -1,0 +1,15 @@
+<ion-view view-title="目的地">
+  <ion-content class="padding0">
+    <div class="margin10-bottom list country-intro padding0">
+      <a href='#/tab/destination/{ "dic_key": "{{item.dic_key}}", "dic_value":"{{item.dic_value}}" }/city'
+         ng-repeat="item in destinationList" class="item border0 item-image margin5-bottom">
+        <img ng-src="{{item.dic_addr}}" height="180" >
+        <div class="country-intro-text col">
+          <div class="light ft-bold ft-22">{{item.dic_value}}</div>
+          <!--<div class="light ft-bold ft-22 padding-bottom">{{item.dic_value}}</div>-->
+          <!--<span class="light">{{item.text}}</span>-->
+        </div>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>
